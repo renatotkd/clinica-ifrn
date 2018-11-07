@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui">
+	
+	<nav class="aw-menu">
+		<!--<ul>
+			<li>
+				<h:link><i class="fa  fa-fw  fa-home"></i>Dashboard</h:link>
+			</li>
+			<li class="is-selected">
+				<h:link><i class="fa  fa-fw  fa-user"></i>Página 1</h:link>
+			</li>
+			<li>
+				<h:link><i class="fa  fa-fw  fa-file-text"></i>Página 2</h:link>
+			</li>
+			<li>
+				<h:link><i class="fa  fa-fw  fa-cog"></i>Página 3</h:link>
+			</li>
+		</ul>-->
+                 <!-- Menu usando o componente p:panelMenu do Primefaces -->
+                <h:form>
+                    <h:outputStylesheet library="lib" name="styles/panelmenu.css" />
+                    <p:panelMenu styleClass="aw-panelmenu" stateful="false">
+                        <p:submenu label="menu" expanded="true" >
+                            <p:menuitem value="Dashboard" icon="fa  fa-fw  fa-home" />
+                            <p:submenu label="Menu" icon="fa  fa-fw  fa-link">
+                                <p:submenu label="PrimeFaces" icon="fa  fa-fw  fa-heart">
+                                    <p:menuitem value="Home" url="#" icon="fa  fa-fw  fa-home" />
+                                    <p:menuitem value="Docs" url="#" icon="fa  fa-fw  fa-file-text-o" />
+                                    <p:menuitem value="Download" url="#" icon="fa  fa-fw  fa-download" />
+                                    <p:menuitem value="Support" url="#" icon="fa  fa-fw  fa-wrench" />
+                                </p:submenu>
+                                <p:submenu label="Principal" icon="fa  fa-fw  fa-heart">
+                                    <p:menuitem value="Teste" url="#" icon="fa  fa-fw  fa-graduation-cap" />                            
+                                    <p:menuitem value="Teste1" url="#" icon="fa  fa-fw  fa-lightbulb-o" />
+                                </p:submenu>
+                            </p:submenu>
+                         </p:submenu>
+                    </p:panelMenu>            
+                </h:form>                
+	</nav>
+	
+</ui:composition> 
