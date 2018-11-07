@@ -2,7 +2,7 @@ package br.edu.ifrn.clinica.models;
 
 /**
  *
- * @author 20171148060009
+ * @author Maykon Oliveira
  */
 public enum Genero {
     MASCULINO, FEMININO

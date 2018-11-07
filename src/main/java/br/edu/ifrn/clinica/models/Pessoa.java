@@ -1,24 +1,25 @@
 package br.edu.ifrn.clinica.models;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  *
- * @author 20171148060009
+ * @author Maykon Oliveira
  */
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa implements Serializable {
     
     @Id
     private Long id;
     private String nomeCompleto;
-    private Genero genero;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Calendar dataNascimento;
+    private String pnome;
+    private String uname;
+    protected String email;
 
     public Long getId() {
         return id;
@@ -35,21 +36,29 @@ public abstract class Pessoa implements Serializable {
     public void setNomeCompleto(String nomeCompleto) {
         this.nomeCompleto = nomeCompleto;
     }
-
-    public Genero getGenero() {
-        return genero;
+    
+    public String getPnome() {
+        return pnome;
     }
 
-    public void setGenero(Genero genero) {
-        this.genero = genero;
+    public void setPnome(String pnome) {
+        this.pnome = pnome;
     }
 
-    public Calendar getDataNascimento() {
-        return dataNascimento;
+    public String getUname() {
+        return uname;
     }
 
-    public void setDataNascimento(Calendar dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     
 }
