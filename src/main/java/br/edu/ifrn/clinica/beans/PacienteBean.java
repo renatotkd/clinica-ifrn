@@ -16,6 +16,7 @@ public class PacienteBean {
     
     @Inject
     private PacienteDao pacienteDao;
+    @Inject
     private Paciente paciente;
 
     public Paciente getPaciente() {
