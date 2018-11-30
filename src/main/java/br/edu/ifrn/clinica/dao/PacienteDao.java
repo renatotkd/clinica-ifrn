@@ -4,11 +4,9 @@ import br.edu.ifrn.clinica.models.Paciente;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-/**
- *
- * @author Maykon Oliveira
- */
+@Transactional
 public class PacienteDao implements CrudDao<Paciente>{
     
     @PersistenceContext
@@ -22,7 +20,7 @@ public class PacienteDao implements CrudDao<Paciente>{
 
     @Override
     public Paciente salvar(Paciente entidade) {
-        entityManager.refresh(entidade);
+        entityManager.persist(entidade);
         return entidade;
     }
 

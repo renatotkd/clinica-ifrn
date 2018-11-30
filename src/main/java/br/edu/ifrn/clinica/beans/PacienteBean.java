@@ -18,7 +18,9 @@ public class PacienteBean {
     private PacienteDao pacienteDao;
     @Inject
     private Paciente paciente;
-
+    public void salvar(){
+    pacienteDao.salvar(paciente);
+    }
     public Paciente getPaciente() {
         return paciente;
     }
