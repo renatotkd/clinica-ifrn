@@ -6,8 +6,8 @@ import java.util.Calendar;
 public class Consulta {
 
     private Calendar data;
-    private Pessoa medico;
-    private Pessoa paciente;
+    private Medico medico;
+    private Paciente paciente;
     private BigDecimal valor;
     private String descricao;
 

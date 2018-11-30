@@ -1,25 +1,28 @@
 package br.edu.ifrn.clinica.models;
 
 import java.io.Serializable;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Embeddable
+@Entity
 public class Telefone implements Serializable {
 
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String numero;
     private Boolean isWhats;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
-
+    
     public String getNumero() {
         return numero;
     }
