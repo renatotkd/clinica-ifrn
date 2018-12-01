@@ -9,16 +9,24 @@ import javax.inject.Named;
  *
  * @author Maykon Oliveira
  */
-
 @Named
 public class ConsultaBean {
-    
-    @Inject
-    ConsultaDao consultaDao;
-    @Inject
-    Consulta consulta;
 
-    public void consulta(){
-        
+    @Inject
+    private ConsultaDao consultaDao;
+    @Inject
+    private Consulta consulta;
+
+    public void marcarConsulta() {
+
     }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+
 }

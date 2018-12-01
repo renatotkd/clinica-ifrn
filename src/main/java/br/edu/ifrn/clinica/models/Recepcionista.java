@@ -4,7 +4,7 @@ import javax.persistence.Column;
 
 public class Recepcionista {
 
-    @Column(unique = true)
+//    @Column(unique = true)
     private String matricula;
 
 }

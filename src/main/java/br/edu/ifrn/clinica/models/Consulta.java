@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Consulta implements Serializable {
@@ -14,8 +17,11 @@ public class Consulta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Calendar data;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Calendar dataAtendimento;
+    @ManyToOne
     private Medico medico;
+    @ManyToOne
     private Paciente paciente;
     private BigDecimal valor;
     private String descricao;
@@ -28,12 +34,12 @@ public class Consulta implements Serializable {
         this.id = id;
     }
     
-    public Calendar getData() {
-        return data;
+    public Calendar getDataAtendimento() {
+        return dataAtendimento;
     }
 
-    public void setData(Calendar data) {
-        this.data = data;
+    public void setDataAtendimento(Calendar dataAtendimento) {
+        this.dataAtendimento = dataAtendimento;
     }
 
     public Medico getMedico() {
