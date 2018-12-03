@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+  <ui:define name="corpo">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Receber Exames</h3>
+              </div>
+              <div class="panel-body">
+                <form jsf:id="form_pesquisar">
+                  <p:messages id="mensagens" />
+                  <div class="input-group">
+                    <h:inputText value="#{exameBean.protocolo}" maxlength="10" label="Protocolo" styleClass="form-control"/>
+                    <span class="input-group-btn">
+                      <h:commandButton value="Pesquisar"  action="#{exameBean.pesquisarExame()}" styleClass="btn btn-primary">
+                        <f:ajax render="form_pesquisar"/>
+                      </h:commandButton>
+                    </span>
+                  </div>
+                </form>
+                <div jsf:id="form_receber" jsf:rendered="#{exameBean.bool}">
+                  <h3>#{exameBean.solicitacaoExame.nome}</h3>
+                  <button value="#{exameBean.receberExame()}" class="btn btn-block btn-success">
+                    <i class="fa fa-check-circle"></i> Receber
+                    <f:ajax render="form_receber"/>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ui:define>
+</ui:composition>

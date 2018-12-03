@@ -3,11 +3,14 @@ package br.edu.ifrn.clinica.models;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -25,6 +28,8 @@ public class Consulta implements Serializable {
     private Paciente paciente;
     private BigDecimal valor;
     private String descricao;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<SolicitacaoExame> examesSolicitados;
 
     public Long getId() {
         return id;
@@ -72,6 +77,14 @@ public class Consulta implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<SolicitacaoExame> getExamesSolicitados() {
+        return examesSolicitados;
+    }
+
+    public void setExamesSolicitados(List<SolicitacaoExame> examesSolicitados) {
+        this.examesSolicitados = examesSolicitados;
     }
 
 }
