@@ -4,6 +4,8 @@
 
 O produto deve dar suporte à gestão de clínica onde trabalha uma equipe de médicos. Será usado pelos recepcionistas para marcação de consultas e também pelos médicos, para registro do histórico dos pacientes. Deve ser controlada a recepção de resultados de exames que sejam enviados diretamente dos laboratórios para os médicos; por opção do médico, estes resultados podem ser entregues aos pacientes, ou guardados na clínica para consulta posterior.
 
+[Template](http://demo.thedevelovers.com/dashboard/klorofil-v2.0/)
+
 #### Tarefas
 
 |    Data    | Maykon | Renato | Leandro | Renata |

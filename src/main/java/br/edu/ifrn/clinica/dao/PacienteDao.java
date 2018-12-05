@@ -26,7 +26,10 @@ public class PacienteDao implements CrudDao<Paciente>{
 
     @Override
     public Paciente atualizar(Paciente entidade) {
-        entityManager.persist(entidade);
+        Optional<Paciente> paciente = encontrarPeloId(entidade.getId());
+        if (paciente.isPresent()) {
+            entityManager.merge(entidade);
+        }
         return entidade;
     }
 

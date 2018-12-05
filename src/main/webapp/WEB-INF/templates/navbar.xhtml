@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="brand">
+      <a href="index.html"><h:graphicImage library="img" name="logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"/></a>
+    </div>
+    <div class="container-fluid">
+      <div class="navbar-btn">
+        <button type="button" class="btn-toggle-fullwidth"><i class="fa fa-arrow-circle-o-left"></i></button>
+      </div>
+      <form class="navbar-form navbar-left">
+        <div class="input-group">
+          <input type="text" value="" class="form-control" placeholder="Pesquisar paciente"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-primary">Buscar</button>
+            </span>
+        </div>
+      </form>
+    </div>
+  </nav>
+</ui:composition>

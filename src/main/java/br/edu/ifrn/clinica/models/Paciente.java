@@ -1,5 +1,6 @@
 package br.edu.ifrn.clinica.models;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -20,7 +21,7 @@ import javax.persistence.TemporalType;
  * @author Maykon Oliveira
  */
 @Entity
-public class Paciente {
+public class Paciente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
