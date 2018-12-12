@@ -5,15 +5,14 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
 
-  <ui:define name="content">
+  <ui:define name="corpo">
     <h:form>
       <p:panel id="panel" header="Cadastro Paciente">
         <p:messages id="mensagens" />
         <h:panelGrid columns="3" cellpadding="5">
           <p:outputLabel for="pnome" value="Primeiro nome" />
-          <p:inputText id="pnome" value="#{pacienteBean.paciente.pnome}"
-                       label="Primeiro nome" required="true">
-            <!--						<f:validateLength maximun="30" />-->
+          <p:inputText id="pnome" value="#{pacienteBean.paciente.pnome}" label="Primeiro nome" required="true">
+            <!-- <f:validateLength maximun="30" />-->
           </p:inputText>
           <p:message for="pnome" display="icon" />
           <p:outputLabel for="unome" value="Sobrenome:" />
