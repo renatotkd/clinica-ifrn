@@ -18,19 +18,19 @@
                         <h2>Clinica Tabajara</h2>
                     </header>
                     <h1>Login</h1>
-                    <form  action="j_security_check" method="POST" jsf:id="form"
+                    <form  action="#{request.contextPath}/j_security_check" method="POST" 
                            class="form-horizontal" style="width: 400px; margin: 0 auto;">
                         <fieldset>
                             <div class="control-group">
                                 <label for="username" class="uname" data-icon="u" >Email </label>
-                                <input class="input-large form-control" id="username" jsf:id="username" jsf:value="#{loginBean.email}" name="j_username" required="required" type="email" placeholder="E-mail"/>
+                                <input class="input-large form-control"  name="j_username" required="required" type="email" placeholder="E-mail"/>
                             </div>
                             <div class="control-group">
                                 <label for="password" data-icon="p"> Senha </label>
-                                <input class="input-large form-control" id="password" jsf:id="password" jsf:value="#{loginBean.senha}" name="j_password" required="required" type="password" placeholder="Senha" />
+                                <input class="input-large form-control"  name="j_password" required="required" type="password" placeholder="Senha" />
                             </div>
                             <div class="control-group">
-                                <input type="submit" class="btn btn-primary" value="Login" jsf:action="#{loginBean.realizaLogin()}"/> 
+                                <input type="submit" class="btn btn-primary" value="Login" /> 
                             </div>
                         </fieldset>
                     </form>
