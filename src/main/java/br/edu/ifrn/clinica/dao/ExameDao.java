@@ -33,5 +33,14 @@ public class ExameDao {
             return Optional.empty();
         }
     }
+
+    public void receberExame(String protocolo) {
+        Optional<SolicitacaoExame> optional = findSolicitacaoExameByProtocolo(protocolo);
+        if (optional.isPresent()) {
+            SolicitacaoExame solicitacao = optional.get();
+            solicitacao.setEntregue(Boolean.TRUE);
+            entityManager.merge(solicitacao);
+        }
+    }
     
 }

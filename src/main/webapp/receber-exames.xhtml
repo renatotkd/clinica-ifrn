@@ -28,27 +28,27 @@
                     </span>
                   </div>
                 </h:form>
-                <div style="display:#{exameBean.solicitacaoExame != null ? 'block' : 'none'};" class="mt-2">
+                <div style="display:#{exameBean.solicitacaoExame != null ? 'block' : 'none'};" class="mt-3">
                   <h:form>
                     <table class="table">
                       <thead>
                         <tr>
                           <th>Protocolo</th>
                           <th>Nome</th>
-                          <th>Entregue</th>
+                          <th>Situação</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>#{exameBean.solicitacaoExame.protocolo}</td>
                           <td>#{exameBean.solicitacaoExame.nome}</td>
-                          <td>#{exameBean.solicitacaoExame.entregue}</td>
+                          <td style="text-align: center;">
+                            #{exameBean.solicitacaoExame.entregue ? 'Entregue' : 'Em espera'}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
-                    <h:commandButton value="Receber"  action="#{exameBean.receberExame()}" styleClass="btn btn-block btn-success"> 
-                      <f:ajax render="@form"/>
-                    </h:commandButton>
+                    <h:commandButton value="Receber"  action="#{exameBean.receberExame()}" styleClass="btn btn-block btn-success"/> 
                   </h:form>
                 </div>
               </div>
