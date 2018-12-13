@@ -34,7 +34,7 @@ public class Paciente implements Serializable {
     @Enumerated(EnumType.STRING)
     private Genero genero;
     @Temporal(TemporalType.DATE)
-    private Calendar dataNascimento;
+    private Calendar dataNascimento = Calendar.getInstance();
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Telefone> telefones;
     private Float peso;
