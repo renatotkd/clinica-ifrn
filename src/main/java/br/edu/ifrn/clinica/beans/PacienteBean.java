@@ -22,8 +22,15 @@ public class PacienteBean {
 
     private List<Paciente> pacientes;
 
-    
-    
+     public void excluir(Paciente paciente){
+         System.out.println("id do paciente: " + paciente.getId());
+        pacienteDao.deletar(paciente);
+        pacientes = null;
+    }
+    public String editar(Paciente paciente){
+        this.paciente = paciente;
+        return "livros.xhtml";
+    }
     
     public PacienteDao getPacienteDao() {
         return pacienteDao;
