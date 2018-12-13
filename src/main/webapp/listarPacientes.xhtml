@@ -4,10 +4,6 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
-    <f:metadata>
-        <f:viewParam value="#{pacientes.id}" name="id" />
-        <f:viewAction action="#{livroBean.carregarLivro()}" />
-    </f:metadata>
 
   <ui:define name="corpo">
         <h1><p:outputLabel value="Pacientes"/></h1>
