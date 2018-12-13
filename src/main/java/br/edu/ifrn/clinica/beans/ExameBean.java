@@ -33,7 +33,6 @@ public class ExameBean {
     }
 
     public void receberExame() {
-        System.out.println(protocolo);
         exameDao.receberExame(protocolo);
     }
 
