@@ -4,6 +4,10 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
+    <f:metadata>
+        <f:viewParam value="#{pacientes.id}" name="id" />
+        <f:viewAction action="#{livroBean.carregarLivro()}" />
+    </f:metadata>
 
   <ui:define name="corpo">
         <h1><p:outputLabel value="Pacientes"/></h1>
@@ -20,8 +24,10 @@
             </p:column>
            
             <p:column headerText="Ações">
+             
                 <h:form>
                     <p:commandLink value="Excluir" action="#{pacienteBean.excluir(paciente)}" update="tabela"/>
+                   <a href="editarPaciente.xhtml?id=#{paciente.id}">Editar</a>  
                 </h:form>              
             </p:column>
         </p:dataTable>
