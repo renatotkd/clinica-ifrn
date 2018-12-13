@@ -20,8 +20,10 @@
             </p:column>
            
             <p:column headerText="Ações">
+             
                 <h:form>
                     <p:commandLink value="Excluir" action="#{pacienteBean.excluir(paciente)}" update="tabela"/>
+                   <a href="editarPaciente.xhtml?id=#{paciente.id}">Editar</a>  
                 </h:form>              
             </p:column>
         </p:dataTable>
