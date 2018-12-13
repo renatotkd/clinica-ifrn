@@ -5,28 +5,37 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
 
-  <ui:define name="corpo">
-        <h1><p:outputLabel value="Pacientes"/></h1>
-        <p:messages/>
-        <p:dataTable var="paciente" value="#{pacienteBean.listar()}" id="tabela">
-            <p:column headerText="Id">
-                <h:outputText value="#{paciente.id}" />
-            </p:column>
-            <p:column headerText="Nome">
-                <h:outputText value="#{paciente.pnome}" />
-            </p:column>
-            <p:column headerText="Nome">
-                <h:outputText value="#{paciente.email}" />
-            </p:column>
-           
-            <p:column headerText="Ações">
-             
-                <h:form>
-                    <p:commandLink value="Excluir" action="#{pacienteBean.excluir(paciente)}" update="tabela"/>
-                   <a href="editarPaciente.xhtml?id=#{paciente.id}">Editar</a>  
-                </h:form>              
-            </p:column>
-        </p:dataTable>
-  </ui:define>
+    <ui:define name="corpo">
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pacientes</h3>
+                        <p:messages/>
+                        <p:dataTable var="paciente" value="#{pacienteBean.listar()}" id="tabela">
+                            <p:column headerText="Id">
+                                <h:outputText value="#{paciente.id}" />
+                            </p:column>
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{paciente.pnome}" />
+                            </p:column>
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{paciente.email}" />
+                            </p:column>
+
+                            <p:column headerText="Ações">
+
+                                <h:form>
+                                    <p:commandLink value="Excluir" action="#{pacienteBean.excluir(paciente)}" update="tabela"/>
+                                    <a href="editarPaciente.xhtml?id=#{paciente.id}">Editar</a>  
+                                </h:form>              
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
 
 </ui:composition>
