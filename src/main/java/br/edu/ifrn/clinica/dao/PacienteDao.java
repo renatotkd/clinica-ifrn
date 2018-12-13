@@ -22,6 +22,7 @@ public class PacienteDao implements CrudDao<Paciente>{
     @Override
     public Paciente salvar(Paciente entidade) {
         entityManager.persist(entidade);
+        
         return entidade;
     }
 
@@ -35,8 +36,11 @@ public class PacienteDao implements CrudDao<Paciente>{
     }
 
     @Override
+    
     public void deletar(Paciente entidade) {
-        entityManager.remove(entidade);
+       
+        System.out.println(entidade.getId()+ entidade.getUname()  + "*******************************************************************************************************************");
+        entityManager.remove(entityManager.find(Paciente.class, entidade.getId()));
     }
     public List<Paciente> listar(){
         String jpql = "select distinct(l) from Paciente l";
