@@ -1,6 +1,7 @@
 package br.edu.ifrn.clinica.dao;
 
 import br.edu.ifrn.clinica.models.Paciente;
+import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,6 +37,10 @@ public class PacienteDao implements CrudDao<Paciente>{
     @Override
     public void deletar(Paciente entidade) {
         entityManager.remove(entidade);
+    }
+    public List<Paciente> listar(){
+        String jpql = "select distinct(l) from Paciente l";
+        return entityManager.createQuery(jpql, Paciente.class).getResultList();
     }
     
 }
