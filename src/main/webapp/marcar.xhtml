@@ -18,12 +18,32 @@
                   <div class="col-lg-12">
                     <div class="card">
                       <div class="card-body card-block">
-                        <h:form>
-                          <div class="form-group">
-                            <h:outputLabel value="CPF" for="cpf" styleClass="form-control-label"/><br/>
-                            <h:inputText id="cpf" styleClass="form-control"/>
-                          </div>                          
-                        </h:form>
+                        <div class="row">
+                          <h:form>
+                            <div class="form-group">
+                              <h:outputLabel value="CPF" for="cpf" styleClass="form-control-label"/><br/>
+                              <h:inputText id="cpf" value="#{consultaBean.cpf}" styleClass="form-control" />
+                              <p:commandButton action="#{consultaBean.buscar()}" icon="fa fa-search"/>
+                            </div>                          
+                          </h:form>
+                        </div>
+                        <div style="display:#{consultaBean.paciente != null ? 'block' : 'none'};" class="mt-3 row">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Paciente</th>
+                                <th scope="col">Médico</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Hora</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Motivo</th>
+                                <th scope="col">Situação</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
                         <div class="row form-group">
                           <div class="col col-md-1">
                             <label class="form-control-label">Médico</label>
@@ -67,7 +87,7 @@
                             </select>
                           </div>
                           <div class="col col-md-1"><label class="form-control-label">Situação</label></div>
-                          <div class="col-12 col-md-5">
+                          <div class="col-12 col-md-4">
                             <select name="select-situacao" id="select" class="form-control">
                               <option value="0">Em Atendimento</option>
                               <option value="1">Atendido</option>
@@ -77,11 +97,9 @@
                               <option value="5">Faltou</option>
                             </select>
                           </div>
-                        </div>
-                      </div>
-                      <div class="row form-group">
-                        <div class="col-12 col-md-2">
-                          <button type="button" class="btn btn-success btn-sm" value="marcarConsulta"  ><i class="fa fa-plus-circle"></i>  Novo Agendamento</button>
+                          <div class="col col-md-1">
+                            <p:commandButton action="#{ConsultaBean.excluir(consulta)}" icon="fa fa-plus-circle"/>
+                          </div>
                         </div>
                       </div>
                     </div>

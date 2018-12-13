@@ -2,19 +2,24 @@ package br.edu.ifrn.clinica.dao;
 
 import br.edu.ifrn.clinica.exception.ConsultaNaoEncontradaException;
 import br.edu.ifrn.clinica.models.Consulta;
+import br.edu.ifrn.clinica.models.Paciente;
+import br.edu.ifrn.clinica.models.SolicitacaoExame;
 import java.util.Optional;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author Maykon Oliveira
  */
-public class ConsultaDao implements CrudDao<Consulta>{
+public class ConsultaDao implements CrudDao<Consulta> {
 
     @PersistenceContext
     private EntityManager entityManager;
-    
+    private Paciente paciente;
+
     @Override
     public Optional<Consulta> encontrarPeloId(Long id) {
         Consulta consulta = entityManager.find(Consulta.class, id);
@@ -36,13 +41,19 @@ public class ConsultaDao implements CrudDao<Consulta>{
         return entidade;
     }
 
-    @Override
     public void deletar(Consulta entidade) {
-        Optional<Consulta> consulta = encontrarPeloId(entidade.getId());
-        if (consulta.isPresent()) {
-            entityManager.remove(entidade);
-        }
-        throw new ConsultaNaoEncontradaException();
+        entityManager.remove(entityManager.find(Consulta.class, entidade.getId()));
     }
-    
+
+    public Optional<Paciente> buscar(String cpf) {
+        TypedQuery<Paciente> query = entityManager.createQuery("FROM Paciente p WHERE p.cpf = :cpf", Paciente.class);
+        query.setParameter("cpf", cpf);
+
+        try {
+            return Optional.of(query.getSingleResult());
+        } catch (NoResultException e) {
+            return Optional.empty();
+        }
+    }
+
 }
