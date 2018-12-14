@@ -2,7 +2,7 @@ package br.edu.ifrn.clinica.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,7 +21,7 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
-    private Calendar dataAtendimento;
+    private Date dataAtendimento = new Date();
     @ManyToOne
     private Medico medico;
     @ManyToOne
@@ -39,11 +39,11 @@ public class Consulta implements Serializable {
         this.id = id;
     }
     
-    public Calendar getDataAtendimento() {
+    public Date getDataAtendimento() {
         return dataAtendimento;
     }
 
-    public void setDataAtendimento(Calendar dataAtendimento) {
+    public void setDataAtendimento(Date dataAtendimento) {
         this.dataAtendimento = dataAtendimento;
     }
 

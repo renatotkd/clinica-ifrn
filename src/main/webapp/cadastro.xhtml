@@ -37,13 +37,15 @@
 
         <h:panelGrid columns="2" cellpadding="5">
           <p:outputLabel for="cpf" value="CPF:" />
-          <p:inputText id="cpf" value="#{pacienteBean.paciente.cpf}" />
+          <p:inputMask id="cpf" value="#{pacienteBean.paciente}" styleClass="form-control" mask="999.999.999-99">
+            <f:validateRequired/>
+          </p:inputMask>
         </h:panelGrid>
-            <h:panelGrid columns="2" cellpadding="5">
-                    <p:outputLabel for="dataNascimento" value="Data Nascimento:" />
-                    <p:calendar id="dataNascimento"
-                            value="#{pacienteBean.paciente.dataNascimento.time}" />
-            </h:panelGrid>
+        <h:panelGrid columns="2" cellpadding="5">
+          <p:outputLabel for="dataNascimento" value="Data Nascimento:" />
+          <p:calendar id="dataNascimento"
+                      value="#{pacienteBean.paciente.dataNascimento.time}" />
+        </h:panelGrid>
         <h:panelGrid columns="2" cellpadding="5">
           <p:outputLabel for="peso" value="Peso:" />
           <p:inputNumber id="peso" value="#{pacienteBean.paciente.peso}" decimalPlaces="2" />

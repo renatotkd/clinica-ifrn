@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.PrimeFaces;
 
 /**
  *
@@ -27,14 +28,6 @@ public class ConsultaBean {
     private String cpf = "";
     private Paciente paciente;
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public void buscar() {
         System.out.println(cpf);
         Optional<Paciente> optional = consultaDao.buscar(cpf);
@@ -45,17 +38,9 @@ public class ConsultaBean {
             paciente = null;
         }
     }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
-
+    
     public void marcarConsulta() {
-
+        
     }
 
     public Consulta getConsulta() {
@@ -64,6 +49,22 @@ public class ConsultaBean {
 
     public void setConsulta(Consulta consulta) {
         this.consulta = consulta;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
 }
