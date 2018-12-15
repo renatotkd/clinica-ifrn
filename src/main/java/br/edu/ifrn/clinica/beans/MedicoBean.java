@@ -15,9 +15,20 @@ public class MedicoBean {
     
     @Inject
     private MedicoDao medicoDao;
+    @Inject
+    private Medico medico;
 
     public List<Medico> listarMedicos() {
         return medicoDao.findAll();
     }
 
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    
 }
