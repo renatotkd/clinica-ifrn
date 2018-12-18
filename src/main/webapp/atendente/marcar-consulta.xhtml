@@ -19,7 +19,7 @@
                     <div class="card">
                       <div class="card-body card-block">
                         <div class="row">
-                          <p:messages id="mensagens" />
+                          <p:messages  globalOnly="true"  />
                           <h:form>
                             <div class="form-row">
                               <div class="form-group col-sm-11 col-md-10">
@@ -37,7 +37,7 @@
                               <div class="form-row">
                                 <div class="form-group col-sm-12 col-md-6">
                                   <label for="nome">Nome</label><br/>
-                                  <p:inputText id="nome" value="#{consultaBean.paciente.nomeCompleto}" styleClass="form-control" readonly="true"/>
+                                  <p:inputText id="nome" value="#{consultaBean.paciente.pnome}" styleClass="form-control" readonly="true"/>
                                 </div>
                                 <div class="form-group col-sm-12 col-md-6">
                                   <label for="email">Email</label><br/>
@@ -52,11 +52,13 @@
                             <div class="form-row">
                               <div class="form-group col-md-12">
                                 <label for="medico">Médico</label>
-                                <h:selectOneListbox value="#{consultaBean.consulta.medico}" converter="conversorMedico" id="medico" styleClass="form-control">
-                                  <f:selectItems value="#{medicoBean.listarMedicos()}" 
-                                                 var="medico" 
-                                                 itemLabel="#{medico.nomeCompleto}" 
-                                                 itemValue="#{medico}"/>
+                                <h:selectOneListbox value="#{consultaBean.consulta.medico}" 
+                                                    converter="conversorMedico" id="medico" styleClass="form-control">
+                                    <f:selectItems value="#{medicoBean.listarMedicos()}" 
+                                                 var="medico"
+                                                 itemValue="#{medico}"
+                                                 itemLabel="#{medico.nomeCompleto}" />
+                                                 
                                 </h:selectOneListbox>
                                 <h:message for="medico" style="color: red;"/>
                               </div>
@@ -93,7 +95,7 @@
                                                             <option value="5">Faltou</option>
                                                           </select>
                                                         </div>-->
-                            <p:commandButton value="Marcar consulta" action="#{consultaBean.marcarConsulta()}" icon="pi pi-check" />
+                            <p:commandButton value="Marcar consulta" action="#{consultaBean.marcarConsulta()}" icon="fa fa-fw fa-save" update="form-consulta"/>
                           </h:form>
                         </div>
                       </div>

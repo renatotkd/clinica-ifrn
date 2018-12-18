@@ -9,7 +9,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.primefaces.PrimeFaces;
 
 /**
  *
@@ -40,7 +39,10 @@ public class ConsultaBean {
     }
     
     public void marcarConsulta() {
-        
+        consultaDao.salvar(consulta);
+        consulta = new Consulta();
+        consulta = null;
+        facesContext.addMessage(null, new FacesMessage("Consulta cadastrada com sucesso!"));
     }
 
     public Consulta getConsulta() {
