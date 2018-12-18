@@ -67,7 +67,7 @@
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>admin</role-name>
+            <role-name>ADMIN</role-name>
             <role-name>atendente</role-name>
         </auth-constraint>
     </security-constraint>

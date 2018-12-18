@@ -24,12 +24,9 @@ public class LoginBean {
     @Inject
     private HttpServletRequest request;
 
-    public String realizaLogin() throws ServletException {
-
-        System.out.println("Logando...");
-        request.login(email, senha);
-        return "auth";
-
+    public String deslogar() throws ServletException {
+        request.logout();
+            return "login";
     }
 
     public String getEmail() {

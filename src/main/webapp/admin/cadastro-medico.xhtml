@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/layout.xhtml">
+
+  <ui:define name="corpo">
+    <div class="main-content">
+      <div class="container-fluid">
+        <!-- OVERVIEW -->
+        <div class="panel panel-headline">
+          <div class="panel-heading">
+            <h3 class="panel-title">Cadastrar médico</h3>
+            <div class="content mt-3">
+              <div class="animated fadeIn">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="card">
+                      <div class="card-body card-block">
+                        <div class="row">
+                          <p:messages id="mensagens" />
+                          <h:form id="form-consulta">
+                            <div class="form-row">
+                              <div class="form-group col-md-12">
+                                <label for="nomeCompleto">Nome completo</label><br/>
+                                <h:inputText id="nomeCompleto" value="#{medicoBean.medico.nomeCompleto}"/>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-sm-12 col-md-6">
+                                <label for="pnome">Nome</label><br/>
+                                <h:inputText id="pnome" value="#{medicoBean.medico.pnome}"/>
+                              </div>
+                              <div class="form-group col-sm-12 col-md-6">
+                                <label for="unome">Nome</label><br/>
+                                <h:inputText id="unome" value="#{medicoBean.medico.uname}"/>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-sm-12 col-md-6">
+                                <label for="cpf">CPF</label><br/>
+                                <h:inputText id="cpf" value="#{medicoBean.medico.cpf}"/>
+                              </div>
+                              <div class="form-group col-sm-12 col-md-6">
+                                <label for="genero">Genêro</label><br/>
+                                <p:selectOneRadio id="genero"
+                                                  value="#{medicoBean.medico.genero}">
+                                  <f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
+                                  <f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
+                                </p:selectOneRadio>
+                              </div>
+                            </div>
+                            <p:commandButton value="Marcar consulta" action="#{consultaBean.marcarConsulta()}" icon="pi pi-check" />
+                          </h:form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- .content -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </ui:define>
+</ui:composition>

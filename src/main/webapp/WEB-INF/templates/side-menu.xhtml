@@ -1,56 +1,65 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
-    <div id="sidebar-nav" class="sidebar">
-        <div class="sidebar-scroll">
-            <nav>
-                <ul class="nav">
-                    <li>
-                        <h:link outcome="/index.xhtml"><i class="fa fa-home"></i> <span>Home</span></h:link>
-                    </li>
-                    <li>
-                        <a href="#consultas" data-toggle="collapse" class="collapsed"><i class="fa fa-users"></i>
-                            <span>Pacientes</span> <i class="icon-submenu fa fa-chevron-left"></i></a>
-                        <div id="consultas" class="collapse ">
-                            <ul class="nav">
-                                <li>
-                                    <h:link outcome="/cadastro.xhtml"><i class="fa fa-user-plus"></i> <span>Cadastrar</span></h:link>
-                                </li>
-                                <li>
-                                    <h:link outcome="/listarPacientes.xhtml"><i class="fa fa-search"></i> <span>Pesquisar</span></h:link>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#consultas" data-toggle="collapse" class="collapsed"><i class="fa fa-calendar"></i>
-                            <span>Consultas</span> <i class="icon-submenu fa fa-chevron-left"></i></a>
-                        <div id="consultas" class="collapse ">
-                            <ul class="nav">
-                                <li>
-                                    <h:link outcome="/marcar.xhtml"><i class="fa fa-plus-square"></i> <span>Marcar</span></h:link>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#exames" data-toggle="collapse" class="collapsed"><i class="fa fa-calendar"></i>
-                            <span>Exames</span> <i class="icon-submenu fa fa-chevron-left"></i></a>
-                        <div id="exames" class="collapse ">
-                            <ul class="nav">
-                                <li>
-                                    <h:link outcome="/receber-exames.xhtml"><i class="fa fa-plus-square"></i> <span>Recer exames</span></h:link>
-                                </li>
-                                <li>
-                                    <h:link outcome="/pesquisar.xhtml"><i class="fa fa-search"></i> <span>Pesquisar</span></h:link>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+  <div id="sidebar-nav" class="sidebar">
+    <div class="sidebar-scroll">
+      <nav>
+        <ul class="nav">
+          <li>
+            <h:link outcome="/index.xhtml"><i class="fa fa-home"></i> <span>Home</span></h:link>
+          </li>
+          <c:if test='#{request.isUserInRole("ADMIN")}'>
+            <li>
+              <h:link outcome="/admin/cadastro-medico.xhtml"><i class="fa fa-user-md"></i> <span>Novo médico</span></h:link>
+            </li>
+          </c:if>
+          <li>
+            <a href="#pacientes" data-toggle="collapse" class="collapsed"><i class="fa fa-address-book-o"></i>
+              <span>Pacientes</span> <i class="icon-submenu fa fa-chevron-left"></i></a>
+            <div id="pacientes" class="collapse ">
+              <ul class="nav">
+                <li>
+                  <h:link outcome="/atendente/cadastro.xhtml"><i class="fa fa-user-plus"></i> <span>Cadastrar</span></h:link>
+                </li>
+                <li>
+                  <h:link outcome="/listar-pacientes.xhtml"><i class="fa fa-search"></i> <span>Pesquisar</span></h:link>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#consultas" data-toggle="collapse" class="collapsed"><i class="fa fa-calendar"></i>
+              <span>Consultas</span> <i class="icon-submenu fa fa-chevron-left"></i></a>
+            <div id="consultas" class="collapse ">
+              <ul class="nav">
+                <li>
+                  <h:link outcome="/atendente/marcar-consulta.xhtml"><i class="fa fa-plus-square"></i> <span>Marcar</span></h:link>
+                </li>
+                <li>
+                  <h:link outcome="/atendente/listar-consultas.xhtml"><i class="fa fa-search"></i> <span>Listar consultas</span></h:link>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#exames" data-toggle="collapse" class="collapsed"><i class="fa fa-book"></i>
+              <span>Exames</span> <i class="icon-submenu fa fa-chevron-left"></i></a>
+            <div id="exames" class="collapse ">
+              <ul class="nav">
+                <li>
+                  <h:link outcome="/atendente/receber-exames.xhtml"><i class="fa fa-hand-paper-o"></i> <span>Receber exames</span></h:link>
+                </li>
+                <li>
+                  <h:link outcome="/atendente/pesquisar-exames.xhtml"><i class="fa fa-search"></i> <span>Pesquisar</span></h:link>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </div>
 </ui:composition>
