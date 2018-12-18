@@ -4,6 +4,8 @@ import br.edu.ifrn.clinica.dao.PacienteDao;
 import br.edu.ifrn.clinica.models.Paciente;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -19,6 +21,8 @@ public class PacienteBean {
     private PacienteDao pacienteDao;
     @Inject
     private Paciente paciente;
+    @Inject
+    private FacesContext facesContext;
 
     private List<Paciente> pacientes;
 
@@ -58,6 +62,10 @@ public class PacienteBean {
     
     public void salvar(){
         pacienteDao.salvar(paciente);
+        facesContext.addMessage(null, new FacesMessage("Paciente cadastrado com sucesso!"));
+        
+        paciente = new Paciente();
+        paciente = null;
     }
     
     public Paciente getPaciente() {

@@ -30,7 +30,9 @@ public class MedicoDao implements CrudDao<Medico>{
 
     @Override
     public Medico salvar(Medico entidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.persist(entidade);
+        
+        return entidade;
     }
 
     @Override

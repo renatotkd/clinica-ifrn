@@ -6,8 +6,10 @@
                 template="/WEB-INF/templates/layout.xhtml">
 
   <ui:define name="corpo">
+      
     <h:form>
       <p:panel id="panel" header="Cadastro Paciente">
+          <p:messages globalOnly="true" />
         <h:panelGrid columns="3" cellpadding="5">
           <p:outputLabel for="pnome" value="Primeiro nome" />
           <p:inputText id="pnome" value="#{pacienteBean.paciente.pnome}" label="Primeiro nome" required="true">
@@ -37,7 +39,7 @@
 
         <h:panelGrid columns="2" cellpadding="5">
           <p:outputLabel for="cpf" value="CPF:" />
-          <p:inputMask id="cpf" value="#{pacienteBean.paciente}" styleClass="form-control" mask="999.999.999-99">
+          <p:inputMask id="cpf" value="#{pacienteBean.paciente.cpf}" styleClass="form-control" mask="999.999.999-99">
             <f:validateRequired/>
           </p:inputMask>
         </h:panelGrid>
@@ -52,7 +54,7 @@
           <p:outputLabel for="altura" value="Altura:" />
           <p:inputNumber id="altura" value="#{pacienteBean.paciente.altura}" decimalPlaces="2" />
         </h:panelGrid>
-        <p:commandButton value="Save"  action="#{pacienteBean.salvar()}" update="panel" icon="pi pi-check"  />
+        <p:commandButton value="Cadastrar"  action="#{pacienteBean.salvar()}" update="panel, @form" icon="pi pi-check"  />
       </p:panel>
     </h:form>
   </ui:define>
