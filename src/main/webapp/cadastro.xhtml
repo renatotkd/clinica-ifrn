@@ -5,53 +5,62 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
 
-  <ui:define name="corpo">
-    <h:form>
-      <p:panel id="panel" header="Cadastro Paciente">
-        <h:panelGrid columns="3" cellpadding="5">
-          <p:outputLabel for="pnome" value="Primeiro nome" />
-          <p:inputText id="pnome" value="#{pacienteBean.paciente.pnome}" label="Primeiro nome" required="true">
-            <!-- <f:validateLength maximun="30" />-->
-          </p:inputText>
-          <p:message for="pnome" display="icon" />
-          <p:outputLabel for="unome" value="Sobrenome:" />
-          <p:inputText id="unome" value="#{pacienteBean.paciente.uname}"
-                       label="Sobrenome" required="true">
-            <f:validateLength maximum="30" />
-          </p:inputText>
-          <p:message for="unome" display="icon" />
-        </h:panelGrid>
-        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-          <p:outputLabel for="genero" value="Genero" />
-          <p:selectOneRadio id="genero"
-                            value="#{pacienteBean.paciente.genero}">
-            <f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
-            <f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
-          </p:selectOneRadio>
-        </h:panelGrid>
+    <ui:define name="corpo">
+        <div class="main-content">
+            <div class="container-fluid">
+                <!-- OVERVIEW -->
+                <div class="panel panel-headline">
+                    <div class="panel-heading">
+                        <h:form>
+                            <p:panel id="panel" header="Cadastro Paciente">
+                                <h:panelGrid columns="3" cellpadding="5">
+                                    <p:outputLabel for="pnome" value="Primeiro nome"/>
+                                    <p:inputText id="pnome" value="#{pacienteBean.paciente.pnome}" label="Primeiro nome" required="true">
+                                        <!-- <f:validateLength maximun="30" />-->
+                                    </p:inputText>
+                                    <p:message for="pnome" display="icon" />
+                                    <p:outputLabel for="unome" value="Sobrenome:" />
+                                    <p:inputText id="unome" value="#{pacienteBean.paciente.uname}"
+                                                 label="Sobrenome" required="true">
+                                        <f:validateLength maximum="30" />
+                                    </p:inputText>
+                                    <p:message for="unome" display="icon" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                    <p:outputLabel for="genero" value="Genero" />
+                                    <p:selectOneRadio id="genero"
+                                                      value="#{pacienteBean.paciente.genero}">
+                                        <f:selectItem itemLabel="Masculino" itemValue="MASCULINO" />
+                                        <f:selectItem itemLabel="Feminino" itemValue="FEMININO" />
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
 
-        <h:panelGrid columns="2" cellpadding="5">
-          <p:outputLabel for="email" value="Email:" />
-          <p:inputText id="email" value="#{pacienteBean.paciente.email}"> </p:inputText>
-        </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="email" value="Email:" />
+                                    <p:inputText id="email" value="#{pacienteBean.paciente.email}"> </p:inputText>
+                                </h:panelGrid>
 
-        <h:panelGrid columns="2" cellpadding="5">
-          <p:outputLabel for="cpf" value="CPF:" />
-          <p:inputText id="cpf" value="#{pacienteBean.paciente.cpf}" />
-        </h:panelGrid>
-            <h:panelGrid columns="2" cellpadding="5">
-                    <p:outputLabel for="dataNascimento" value="Data Nascimento:" />
-                    <p:calendar id="dataNascimento"
-                            value="#{pacienteBean.paciente.dataNascimento.time}" />
-            </h:panelGrid>
-        <h:panelGrid columns="2" cellpadding="5">
-          <p:outputLabel for="peso" value="Peso:" />
-          <p:inputNumber id="peso" value="#{pacienteBean.paciente.peso}" decimalPlaces="2" />
-          <p:outputLabel for="altura" value="Altura:" />
-          <p:inputNumber id="altura" value="#{pacienteBean.paciente.altura}" decimalPlaces="2" />
-        </h:panelGrid>
-        <p:commandButton value="Save"  action="#{pacienteBean.salvar()}" update="panel" icon="pi pi-check"  />
-      </p:panel>
-    </h:form>
-  </ui:define>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="cpf" value="CPF:" />
+                                    <p:inputText id="cpf" value="#{pacienteBean.paciente.cpf}" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="dataNascimento" value="Data Nascimento:" />
+                                    <p:calendar id="dataNascimento"
+                                                value="#{pacienteBean.paciente.dataNascimento.time}" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="peso" value="Peso:" />
+                                    <p:inputNumber id="peso" value="#{pacienteBean.paciente.peso}" decimalPlaces="2" />
+                                    <p:outputLabel for="altura" value="Altura:" />
+                                    <p:inputNumber id="altura" value="#{pacienteBean.paciente.altura}" decimalPlaces="2" />
+                                </h:panelGrid>
+                                <p:commandButton value="Salvar"  action="#{pacienteBean.salvar()}" update="panel" icon="pi pi-check"  />
+                            </p:panel>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
 </ui:composition>

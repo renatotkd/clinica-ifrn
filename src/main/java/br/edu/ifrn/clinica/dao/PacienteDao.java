@@ -38,8 +38,7 @@ public class PacienteDao implements CrudDao<Paciente>{
     @Override
     
     public void deletar(Paciente entidade) {
-       
-        System.out.println(entidade.getId()+ entidade.getUname()  + "*******************************************************************************************************************");
+   
         entityManager.remove(entityManager.find(Paciente.class, entidade.getId()));
     }
     public List<Paciente> listar(){

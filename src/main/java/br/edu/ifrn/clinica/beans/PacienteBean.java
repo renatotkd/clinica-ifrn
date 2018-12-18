@@ -20,6 +20,8 @@ public class PacienteBean {
     @Inject
     private Paciente paciente;
 
+    private String id;
+
     private List<Paciente> pacientes;
 
      public void excluir(Paciente paciente){
@@ -66,6 +68,13 @@ public class PacienteBean {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+      public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
 }

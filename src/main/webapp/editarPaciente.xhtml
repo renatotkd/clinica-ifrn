@@ -4,7 +4,10 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
-
+    <!-- colocar a tag scoped para  -->
+<f:metadata>
+    <f:viewAction action="#{pacienteBean.id}" />
+</f:metadata>
   <ui:define name="corpo">
     <h:form>
       <p:panel id="panel" header="Cadastro Paciente">
