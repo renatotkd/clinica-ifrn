@@ -20,7 +20,7 @@
                       <div class="card-body card-block">
                         <div class="row">
                           <p:messages  globalOnly="true"  />
-                          <h:form>
+                          <h:form id="form_paciente">
                             <div class="form-row">
                               <div class="form-group col-sm-11 col-md-10">
                                 <h:outputLabel value="CPF" for="cpf" styleClass="form-control-label"/><br/>
@@ -35,6 +35,10 @@
                             </div>                          
                             <div style="display:#{consultaBean.paciente != null ? 'block' : 'none'};" class="mt-3">
                               <div class="form-row">
+                                <div class="form-group col-sm-12 col-md-6" style="display: none;">
+                                  <label for="id"></label><br/>
+                                  <p:inputText id="id" value="#{consultaBean.paciente.id}" styleClass="form-control" readonly="true"/>
+                                </div>
                                 <div class="form-group col-sm-12 col-md-6">
                                   <label for="nome">Nome</label><br/>
                                   <p:inputText id="nome" value="#{consultaBean.paciente.pnome}" styleClass="form-control" readonly="true"/>
@@ -43,7 +47,7 @@
                                   <label for="email">Email</label><br/>
                                   <p:inputText id="email" value="#{consultaBean.paciente.email}" styleClass="form-control" readonly="true"/>
                                 </div>
-                            </div>
+                              </div>
                             </div>
                           </h:form>
                         </div>
@@ -54,11 +58,11 @@
                                 <label for="medico">Médico</label>
                                 <h:selectOneListbox value="#{consultaBean.consulta.medico}" 
                                                     converter="conversorMedico" id="medico" styleClass="form-control">
-                                    <f:selectItems value="#{medicoBean.listarMedicos()}" 
+                                  <f:selectItems value="#{medicoBean.listarMedicos()}" 
                                                  var="medico"
                                                  itemValue="#{medico}"
                                                  itemLabel="#{medico.nomeCompleto}" />
-                                                 
+
                                 </h:selectOneListbox>
                                 <h:message for="medico" style="color: red;"/>
                               </div>
@@ -95,7 +99,7 @@
                                                             <option value="5">Faltou</option>
                                                           </select>
                                                         </div>-->
-                            <p:commandButton value="Marcar consulta" action="#{consultaBean.marcarConsulta()}" icon="fa fa-fw fa-save" update="form-consulta"/>
+                            <p:commandButton value="Marcar consulta" update="@form" action="#{consultaBean.marcarConsulta()}" icon="fa fa-fw fa-save"/>
                           </h:form>
                         </div>
                       </div>

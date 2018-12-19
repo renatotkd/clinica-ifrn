@@ -10,7 +10,7 @@ import javax.faces.convert.FacesConverter;
  *
  * @author maykon-oliveira
  */
-@FacesConverter("conversorMedico")
+@FacesConverter(value = "conversorMedico")
 public class ConversorMedico implements Converter {
 
     @Override

@@ -3,6 +3,7 @@ package br.edu.ifrn.clinica.models;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -113,6 +114,36 @@ public class Medico implements Serializable {
 
     public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
+    }
+
+    @Override
+    public String toString() {
+        return "Medico{" + "pnome=" + pnome + ", uname=" + uname + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Medico other = (Medico) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
 }

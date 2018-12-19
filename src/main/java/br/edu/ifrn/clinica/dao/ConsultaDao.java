@@ -1,10 +1,10 @@
 package br.edu.ifrn.clinica.dao;
 
-import br.edu.ifrn.clinica.exception.ConsultaNaoEncontradaException;
 import br.edu.ifrn.clinica.models.Consulta;
+import br.edu.ifrn.clinica.models.Medico;
 import br.edu.ifrn.clinica.models.Paciente;
-import br.edu.ifrn.clinica.models.SolicitacaoExame;
 import java.util.Optional;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -18,7 +18,10 @@ public class ConsultaDao implements CrudDao<Consulta> {
 
     @PersistenceContext
     private EntityManager entityManager;
-    private Paciente paciente;
+    @Inject
+    private MedicoDao medicoDao;
+    @Inject
+    private PacienteDao pacienteDao;
 
     @Override
     public Optional<Consulta> encontrarPeloId(Long id) {
@@ -28,7 +31,11 @@ public class ConsultaDao implements CrudDao<Consulta> {
 
     @Override
     public Consulta salvar(Consulta entidade) {
-        entityManager.persist(entidade);
+        Optional<Medico> medico = medicoDao.encontrarPeloId(entidade.getMedico().getId());
+        System.out.println(medico);
+        Optional<Paciente> paciente = pacienteDao.encontrarPeloId(entidade.getPaciente().getId());
+        System.out.println(paciente);
+//        entityManager.persist(entidade);
         return entidade;
     }
 

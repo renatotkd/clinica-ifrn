@@ -28,7 +28,6 @@ public class ConsultaBean {
     private Paciente paciente;
 
     public void buscar() {
-        System.out.println(cpf);
         Optional<Paciente> optional = consultaDao.buscar(cpf);
         if (optional.isPresent()) {
             paciente = optional.get();
@@ -39,9 +38,10 @@ public class ConsultaBean {
     }
     
     public void marcarConsulta() {
-        consultaDao.salvar(consulta);
+        consulta.setPaciente(paciente);
+        System.out.println(paciente);
+//        consultaDao.salvar(consulta);
         consulta = new Consulta();
-        consulta = null;
         facesContext.addMessage(null, new FacesMessage("Consulta cadastrada com sucesso!"));
     }
 
