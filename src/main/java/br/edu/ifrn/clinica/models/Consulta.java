@@ -87,4 +87,9 @@ public class Consulta implements Serializable {
         this.examesSolicitados = examesSolicitados;
     }
 
+    @Override
+    public String toString() {
+        return "Consulta{" + "id=" + id + ", dataAtendimento=" + dataAtendimento + ", medico=" + medico + ", paciente=" + paciente + ", valor=" + valor + ", descricao=" + descricao + '}';
+    }
+    
 }

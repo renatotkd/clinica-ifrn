@@ -128,4 +128,9 @@ public class Paciente implements Serializable {
         this.altura = altura;
     }
 
+    @Override
+    public String toString() {
+        return "Paciente{" + "pnome=" + pnome + ", uname=" + uname + '}';
+    }
+
 }

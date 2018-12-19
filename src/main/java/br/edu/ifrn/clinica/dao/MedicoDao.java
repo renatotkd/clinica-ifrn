@@ -25,12 +25,14 @@ public class MedicoDao implements CrudDao<Medico>{
 
     @Override
     public Optional<Medico> encontrarPeloId(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Optional.ofNullable(entityManager.find(Medico.class, id));
     }
 
     @Override
     public Medico salvar(Medico entidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.persist(entidade);
+        
+        return entidade;
     }
 
     @Override

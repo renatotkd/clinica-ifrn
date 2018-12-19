@@ -15,7 +15,7 @@ import java.util.Base64;
 public class GeraPassword {
 
     public static void main(String[] args) {
-        System.out.println(gerador("123"));
+        System.out.println(gerador("admin"));
     }
 
     public static String gerador(String senhaTexto) {

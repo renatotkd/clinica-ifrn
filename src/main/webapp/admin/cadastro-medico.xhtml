@@ -19,8 +19,8 @@
                     <div class="card">
                       <div class="card-body card-block">
                         <div class="row">
-                          <p:messages id="mensagens" />
-                          <h:form id="form-consulta">
+                          <h:form id="form-medico">
+                              <p:messages  globalOnly="true"  />
                             <div class="form-row">
                               <div class="form-group col-md-12">
                                 <label for="nomeCompleto">Nome completo</label><br/>
@@ -33,8 +33,8 @@
                                 <h:inputText id="pnome" value="#{medicoBean.medico.pnome}"/>
                               </div>
                               <div class="form-group col-sm-12 col-md-6">
-                                <label for="unome">Nome</label><br/>
-                                <h:inputText id="unome" value="#{medicoBean.medico.uname}"/>
+                                <label for="unome">Sobrenome</label><br/>
+                                <h:inputText id="uname" value="#{medicoBean.medico.uname}"/>
                               </div>
                             </div>
                             <div class="form-row">
@@ -51,8 +51,9 @@
                                 </p:selectOneRadio>
                               </div>
                             </div>
-                            <p:commandButton value="Marcar consulta" action="#{consultaBean.marcarConsulta()}" icon="pi pi-check" />
+                              <p:commandButton value="Cadastrar" action="#{medicoBean.save()}" icon="fa fa-fw fa-save" update="form-medico"/>                         
                           </h:form>
+                          
                         </div>
                       </div>
                     </div>
